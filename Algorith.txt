@@ -1,0 +1,99 @@
+Algorithm: Problem1
+
+Objective:
+To calculate the sum of all distinct elements from two sets using arrays.
+
+Example:
+Set 1: [3, 1, 7, 9]
+Set 2: [2, 4, 1, 9, 3]
+Output: 13 (distinct elements: 7, 2, 4)
+
+Variables:
+- sum ← 0                      // Counter for the final sum
+- set1[], set2[]              // Arrays containing elements
+- n1, n2                      // Sizes of set1 and set2
+- i, j                        // Loop counters
+- found                       // Flag to check presence in the other array
+
+Steps:
+1. Start
+2. Initialize sum ← 0
+3. Read array set1 of size n1
+4. Read array set2 of size n2
+
+// Step A: Check elements in set1 that are not in set2
+5. For i from 0 to n1 - 1 do:
+    a. Set found ← false
+    b. For j from 0 to n2 - 1 do:
+        i. If set1[i] = set2[j], set found ← true
+    c. If found = false, then sum ← sum + set1[i]
+
+// Step B: Check elements in set2 that are not in set1
+6. For i from 0 to n2 - 1 do:
+    a. Set found ← false
+    b. For j from 0 to n1 - 1 do:
+        i. If set2[i] = set1[j], set found ← true
+    c. If found = false, then sum ← sum + set2[i]
+
+7. Display "Sum of distinct elements = ", sum
+8. End
+
+
+Algorithm: Problem2 DotProduct and OrthogonalityCheck
+
+Objective:
+1. Write a procedure to calculate the dot product of two vectors.
+2. Use the procedure to check if two vectors are orthogonal (dot product = 0).
+3. Rewrite the same using a function instead of a procedure.
+
+Dot Product Procedure
+Variables:
+- v1[], v2[] → vectors of real numbers (IR)
+- n → size of vectors
+- i → loop counter
+- ps → variable to store dot product result
+
+Procedure dot_product(v1, v2, n, ps):
+1. Set ps ← 0
+2. For i from 0 to n - 1 do:
+   a. ps ← ps + (v1[i] × v2[i])
+3. End procedure
+
+Orthogonality Check Using the Procedure
+Variables:
+- count → number of vector pairs
+- v1[], v2[] → input vectors
+- ps → result from dot_product procedure
+
+Algorithm:
+1. Start
+2. Read number of vector pairs: count
+3. For k from 1 to count do:
+   a. Read vectors v1 and v2 of size n
+   b. Call procedure dot_product(v1, v2, n, ps)
+   c. If ps = 0:
+        → Display "Vectors are orthogonal"
+      Else:
+        → Display "Vectors are not orthogonal"
+4. End
+
+Using a Function Instead
+Function dot_product(v1, v2, n):
+1. Initialize ps ← 0
+2. For i from 0 to n - 1 do:
+    a. ps ← ps + (v1[i] × v2[i])
+3. Return ps
+
+Modified Algorithm:
+1. Start
+2. Read number of vector pairs: count
+3. For k from 1 to count do:
+   a. Read vectors v1 and v2 of size n
+   b. Set ps ← dot_product(v1, v2, n)
+   c. If ps = 0:
+        → Display "Vectors are orthogonal"
+      Else:
+        → Display "Vectors are not orthogonal"
+4. End
+
+
